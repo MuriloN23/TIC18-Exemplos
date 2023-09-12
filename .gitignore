@@ -1,0 +1,7 @@
+#Arquivps objetos
+*.o
+#Arquivos temporários
+*.tmp
+/private
+/keys
+/.vscode

@@ -10,4 +10,5 @@ int main(void){
     cout <<"Bom dia, " <<Nome<< ". Tenha um bom curso!";
     cout << endl;
     return 0;
+    
 }
