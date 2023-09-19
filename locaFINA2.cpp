@@ -527,54 +527,54 @@ void menuLocacoes(vector<Locacao>& locacoes, vector<Veiculo>&veiculos, vector<Cl
 
 void incluirOcorrencia(vector<Locacao>& locacoes, vector<Cliente>& clientes, vector<Veiculo>&veiculos) {
     string cpf, placa;
-    cout << "Digite o cpf do cliente: ";
+    cout << "Digite o cpf do cliente: "<<endl;
     cin >> cpf;
-    cout << "Digite a placa do veículo: ";
+    cout << "Digite a placa do veículo: "<<endl;
     cin >> placa;
 
     for (auto& loc : locacoes) {
         if (loc.cliente->cpf == cpf && loc.veiculo->placadoveiculo == placa) {
-            cout << "Digite a descrição da ocorrência: ";
+            cout << "Digite a descrição da ocorrência: "<<endl;
             cin.ignore();
             getline(cin, loc.ocorrencia.descricao);
-            cout << "Digite a data e hora da ocorrência (DD/MM/AAAA HH:MM): ";
+            cout << "Digite a data e hora da ocorrência (DD/MM/AAAA HH:MM): "<<endl;
             getline(cin, loc.ocorrencia.dataHora);
-            cout << "Digite o número da apólice: ";
+            cout << "Digite o número da apólice: "<<endl;
             cin >> loc.ocorrencia.numeroApolice;
-            cout << "Ocorrência registrada com sucesso!\n";
+            cout << "Ocorrência registrada com sucesso!"<<endl;
             return;
         }
     }
-    cout << "Locação não encontrada!\n";
+    cout << "Locação não encontrada!"<<endl;
 }
 
 void excluirOcorrencia(vector<Locacao>& locacoes) {
     string cpf, placa;
-    cout << "Digite o cpf do cliente: ";
+    cout << "Digite o cpf do cliente: "<<endl;
     cin >> cpf;
-    cout << "Digite a placa do veículo: ";
+    cout << "Digite a placa do veículo: "<<endl;
     cin >> placa;
 
     for (auto& loc : locacoes) {
         if (loc.cliente->cpf == cpf && loc.veiculo->placadoveiculo == placa) {
             loc.ocorrencia = Ocorrencia();  // Resetar a ocorrência para um estado vazio
-            cout << "Ocorrência excluída com sucesso!\n";
+            cout << "Ocorrência excluída com sucesso!"<<endl;
             return;
         }
     }
-    cout << "Ocorrência ou locação não encontrada!\n";
+    cout << "Ocorrência ou locação não encontrada!"<< endl;
 }
 
 void alterarOcorrencia(vector<Locacao>& locacoes) {
     string cpf, placa;
-    cout << "Digite o cpf do cliente: ";
+    cout << "Digite o cpf do cliente: "<<endl;
     cin >> cpf;
-    cout << "Digite a placa do veículo: ";
+    cout << "Digite a placa do veículo: "<<endl;
     cin >> placa;
 
     for (auto& loc : locacoes) {
         if (loc.cliente->cpf == cpf && loc.veiculo->placadoveiculo == placa) {
-            cout << "Descrição atual da ocorrência: " << loc.ocorrencia.descricao << "\nDeseja alterar? (s/n) ";
+            cout << "Descrição atual da ocorrência: " << loc.ocorrencia.descricao <<endl<< "Deseja alterar? ('s' para Sim ou 'n' para Não) "<< endl;
             char resposta;
             cin >> resposta;
             if (resposta == 's') {
@@ -607,7 +607,7 @@ void alterarOcorrencia(vector<Locacao>& locacoes) {
 
 void listarOcorrenciasPorCliente(vector<Locacao>& locacoes) {
     string cpf;
-    cout << "Digite o cpf do cliente: ";
+    cout << "Digite o cpf do cliente: "<<endl;
     cin >> cpf;
 
     for (const auto& loc : locacoes) {
@@ -619,12 +619,12 @@ void listarOcorrenciasPorCliente(vector<Locacao>& locacoes) {
 
 void listarOcorrenciasPorVeiculo(vector<Locacao>& locacoes) {
     string placa;
-    cout << "Digite a placa do veículo: ";
+    cout << "Digite a placa do veículo: "<<endl;
     cin >> placa;
 
     for (const auto& loc : locacoes) {
         if (loc.veiculo->placadoveiculo == placa && !loc.ocorrencia.descricao.empty()) {
-            cout << "Descrição: " << loc.ocorrencia.descricao << ", Data/Hora: " << loc.ocorrencia.dataHora << ", Apólice: " << loc.ocorrencia.numeroApolice << "\n";
+            cout << "Descrição: " << loc.ocorrencia.descricao << ", Data/Hora: " << loc.ocorrencia.dataHora << ", Apólice: " << loc.ocorrencia.numeroApolice << "."<<endl;
         }
     }
 }
@@ -633,9 +633,9 @@ void menuOcorrencias(vector<Locacao>& locacoes, vector<Cliente>& clientes, vecto
     int opcao;
 
     do {
-        cout << "Módulo de Gestão de Ocorrências\n";
-        cout << "1. Incluir Ocorrência\n2. Excluir Ocorrência\n3. Alterar Ocorrência\n4. Listar Ocorrências por Cliente\n5. Listar Ocorrências por Veículo\n0. Sair\n";
-        cout << "Digite uma opção: ";
+        cout << "Módulo de Gestão de Ocorrências" <<endl;
+        cout << "1. Incluir Ocorrência."<<endl<<"2. Excluir Ocorrência."<<endl<<"3. Alterar Ocorrência."<<endl<< "4. Listar Ocorrências por Cliente." <<endl<<"5. Listar Ocorrências por Veículo."<<endl<< "0. Sair."<<endl;
+        cout << "Digite uma opção: "<<endl;
         cin >> opcao;
 
         switch (opcao) {
@@ -655,10 +655,10 @@ void menuOcorrencias(vector<Locacao>& locacoes, vector<Cliente>& clientes, vecto
             listarOcorrenciasPorVeiculo(locacoes);
             break;
         case 0:
-            cout << "Saindo...\n";
+            cout << "Saindo..."<<endl;
             break;
         default:
-            cout << "Opção inválida!\n";
+            cout << "Opção inválida."<<endl;
             break;
         }
 
